@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <title>SPECTROGY — Optical Liquid Intelligence | AI Spectral Analysis</title>
+    <meta name="description" content="SPECTROGY: DLS & LASCA optical sensors and AI software for real-time liquid analysis. Solutions for wineries and industrial greenhouses.">
+    <meta name="keywords" content="optical sensors, AI spectral analysis, DLS, LASCA, liquid intelligence, industrial sensors">
+
+    <meta property="og:title" content="SPECTROGY — Optical Liquid Intelligence">
+    <meta property="og:description" content="Precision in Every Drop: Real-time optical sensing and AI-driven analysis.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://spectrogy.com/">
+    <meta property="og:image" content="https://spectrogy.com/images/og-preview.jpg">
+
+    <style>
+        :root{
+            --accent:#2563eb;
+            --glass:rgba(255,255,255,.9);
+        }
+
+        *{box-sizing:border-box}
+
+        html,body{
+            margin:0;
+            font-family:Inter,system-ui,sans-serif;
+            color:#111;
+            scroll-behavior: smooth;
+        }
+
+        /* Background with optimized overlay */
+        .bg{
+            position:fixed;
+            inset:0;
+            background:
+                linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.3)),
+                url('./images/vfi3.webp');
+            background-size:cover;
+            background-position:center;
+            z-index:-1;
+        }
+
+        .page{
+            max-width:960px;
+            margin:auto;
+            padding:16px;
+        }
+
+        .card{
+            background:var(--glass);
+            border-radius:16px;
+            padding:20px;
+            margin-bottom:12px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px); /* Safari support */
+        }
+
+        header{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+        .logo{
+            font-weight:800;
+            letter-spacing:2px;
+        }
+        .tagline{
+            font-size:12px;
+            opacity:.7;
+            font-family:monospace;
+        }
+
+        .hero h1{
+            margin: 8px 0;
+            font-weight: 300;
+            font-size: clamp(1.8rem, 4vw, 2.5rem); 
+            line-height: 1.2;
+        }
+        .hero span{
+            color: var(--accent);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .hero-ai{
+            margin-top:16px;
+            padding-top:12px;
+            border-top:1px solid rgba(0,0,0,.08);
+        }
+
+        .hero-ai h3{
+            margin:0 0 12px;
+            font-size:14px;
+            text-transform:uppercase;
+            letter-spacing:1px;
+        }
+
+        .hero-ai-images{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 8px;
+            max-width: 600px;
+        }
+
+        .hero-ai-images img{
+            width: 100%;
+            border-radius: 10px;
+            background: #fff;
+            padding: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .hero-ai p{
+            font-size: 15px; 
+            line-height: 1.6; 
+            margin-top: 16px;
+        }
+
+        .devices{
+            display:grid;
+            grid-template-columns:1fr;
+            gap:16px;
+        }
+
+        .device{
+            display:flex;
+            flex-direction: column;
+            gap:12px;
+        }
+
+        .device-images{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:8px;
+        }
+
+        .device-images img{
+            width:100%;
+            height: 200px; /* Фиксированная высота для выравнивания */
+            border-radius:12px;
+            background:#f1f5f9;
+            padding:6px;
+            object-fit:cover; /* Обрезка по размеру */
+        }
+
+        .device strong{
+            font-size:16px;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .invest a{
+            color:var(--accent);
+            text-decoration:none;
+            font-weight:600;
+            transition: opacity 0.2s;
+        }
+        .invest a:hover{
+            opacity: 0.8;
+        }
+
+        .highlight {
+            border-bottom: 1px solid var(--accent);
+            color: inherit;
+        }
+
+        footer{
+            text-align:center;
+            font-size:12px;
+            padding:20px 0;
+            color: rgba(255,255,255,0.8);
+        }
+
+        @media(min-width:768px){
+            .devices{ grid-template-columns:1fr 1fr; }
+            .hero-ai-images { gap: 12px; }
+        }
+        @media (max-width: 480px) {
+            .hero-ai-images { grid-template-columns: 1fr; }
+            .hero h1 { white-space: normal; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="bg"></div>
+
+<main class="page">
+    <header class="card">
+        <div class="logo">SPECTROGY</div>
+        <div class="tagline">L-SDA Analyzer TECH</div>
+    </header>
+
+    <section class="card hero">
+        <span>Optical BOX Sensors & AI Software</span>
+        <h1>The Future of Fluid Intelligence</h1>
+        <p>
+             DLS (Dynamic Light Scattering) & LASCA (Laser Speckle Contrast Analysis) <br>
+             AI-driven mathematical analysis of spectra for precise measurement extraction.
+        </p>
+
+        <div class="hero-ai">
+            <h3>AI Spectral Analysis</h3>
+            <div class="hero-ai-images">
+                <img src="images/graph3.png" alt="Optical spectrum analysis graph 1">
+                <img src="images/graph2.png" alt="Optical spectrum analysis graph 2">
+                <img src="images/graph1.png" alt="Optical spectrum analysis graph 3">
+            </div>
+            <p>
+                Machine learning models analyze optical spectra to detect composition, impurities, and process drift instantly — no reagents, no manual sampling.
+            </p>
+        </div>
+    </section>
+
+    <section class="card">
+        <div class="devices">
+            <article class="device">
+                <div class="device-images">
+                    <img src="images/IMG_4090.jpg" alt="Gen I Static Analyzer Device">
+                    <img src="images/IMG_4094.jpg" alt="Winery batch analysis process">
+                </div>
+                <div>
+                    <strong>Gen I — Static Analyzer</strong>
+                    Laboratory and winery batch spectral analysis.<br> 
+                    <u>Volatile acid</u>, conversion of <u>malic acid</u>, and <u>Brettanomyces</u> measurements.
+                </div>
+            </article>
+
+            <article class="device">
+                <div class="device-images">
+                    <img src="images/IMG_4071.jpg" alt="Gen II Inline Flow Sensor">
+                    <img src="images/IMG_4072.jpg" alt="Pipeline quality monitoring">
+                </div>
+                <div>
+                    <strong>Gen II — Inline Flow Sensor</strong>
+                    Continuous spectral monitoring directly in pipelines.<br>
+                    Real-time water quality tracking for <span class="highlight">industrial greenhouses</span>: 
+                    instant detection of <span class="highlight">bacteria</span> and <span class="highlight">viruses</span> in the flow.
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="card invest">
+        <h3>Scaling Agricultural Innovation</h3>
+        <p>We are actively seeking <strong>strategic investors and partners</strong> to accelerate the development of our optical sensing solutions.</p>
+        <p>Focus: Expanding into the <strong>industrial greenhouse sector</strong>, ensuring global food security through real-time pathogen detection.</p>
+        
+        <div style="margin-top: 24px;">
+            <span class="tagline">Contact Us:</span><br>
+            <a href="mailto:hello@spectrogy.com" style="font-size: 1.2rem; border-bottom: 2px solid var(--accent);">hello@spectrogy.com</a>
+        </div>
+    </section>
+
+    <footer>
+        SPECTROGY © 2026 · spectrogy.com
+    </footer>
+</main>
+
+</body>
+</html>
