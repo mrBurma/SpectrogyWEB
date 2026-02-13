@@ -1,0 +1,11 @@
+{
+  "name": "spectrogy-site",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "mkdir -p dist && cp index.html dist/ || true",
+    "deploy": "wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "^3.101.0"
+  }
+}
