@@ -106,20 +106,21 @@
             text-transform:uppercase;
             letter-spacing:1px;
         }
-
+        
         .hero-ai-images{
             display: grid;
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 8px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
             max-width: 600px;
         }
 
         .hero-ai-images img{
             width: 100%;
+            aspect-ratio: 16 / 9;     
+            object-fit: contain;     
+            background: #0b0f14;
             border-radius: 10px;
-            background: #fff;
-            padding: 4px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            display: block;
         }
 
         .hero-ai p{
@@ -261,9 +262,9 @@
         <div class="hero-ai">
             <h3>AI Spectral Analysis</h3>
             <div class="hero-ai-images">
-                <img src="./images/graph3.png" alt="Optical spectrum analysis graph 1">
-                <img src="./images/graph2.png" alt="Optical spectrum analysis graph 2">
-                <img src="./images/graph1.png" alt="Optical spectrum analysis graph 3">
+                <img src="./images/dashboard.webp" alt="Optical spectrum analysis dashboard">
+                <img src="./images/detection.webp" alt="Optical spectrum analysis detection">
+                <img src="./images/graph2.webp" alt="Optical spectrum analysis graph 2">
             </div>
             <p>
                 Detection is powered by DLS particle characterisation and LASCA flow dynamics analysis, with pathogen classification performed by AI models trained on optical spectral databases. The system operates inline, continuously, and without consumables — providing actionable alerts within seconds of contamination events.
@@ -275,8 +276,8 @@
         <div class="devices">
             <article class="device">
                 <div class="device-images">
-                    <img src="./images/IMG_4090.jpg" alt="Gen I Static Analyzer Device">
-                    <img src="./images/IMG_4094.jpg" alt="Winery batch analysis process">
+                    <img src="./images/IMG_4090.webp" alt="Gen I Static Analyzer Device">
+                    <img src="./images/IMG_4094.webp" alt="Winery batch analysis process">
                 </div>
                 <div>
                     <strong>Gen I — Static Analyzer</strong>
@@ -287,8 +288,8 @@
 
             <article class="device">
                 <div class="device-images">
-                    <img src="./images/IMG_4071.jpg" alt="Gen II Inline Flow Sensor">
-                    <img src="./images/IMG_4072.jpg" alt="Pipeline quality monitoring">
+                    <img src="./images/IMG_4071.webp" alt="Gen II Inline Flow Sensor">
+                    <img src="./images/IMG_4072.webp" alt="Pipeline quality monitoring">
                 </div>
                 <div>
                     <strong>Gen II — Inline Flow Sensor</strong>
