@@ -10,234 +10,603 @@
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
 
-    <title>SPECTROGY — Optical Liquid Intelligence | Real-Time Pathogen Detection</title>
-    <meta name="description" content="SPECTROGY: AI-driven optical sensors for real-time detection of Pepino mosaic virus (PepMV), ToBRFV, Clavibacter michiganensis, and Pseudomonas corrugata in irrigation systems.">
-    <meta name="keywords" content="optical sensors, AI spectral analysis, DLS, LASCA, pathogen detection, PepMV, ToBRFV, Clavibacter michiganensis, Pseudomonas corrugata, greenhouse monitoring, plant virus detection, liquid intelligence, real-time biosensing">
+    <title>SPECTROGY — Optical Liquid Intelligence Platform | Real-Time Sensing Infrastructure</title>
+    <meta name="description" content="SPECTROGY: a deep-tech optical sensing platform combining spectroscopy, embedded hardware and AI for real-time molecular analysis of liquids across agriculture, water, beverages, biotech and industrial process monitoring.">
+    <meta name="keywords" content="optical sensing platform, AI spectral analysis, real-time liquid analysis, deep tech sensing, inline monitoring, industrial sensors, water quality, bioprocess monitoring, beverage analytics, pathogen detection">
 
-    <meta property="og:title" content="SPECTROGY — Optical Liquid Intelligence">
-    <meta property="og:description" content="Precision in Every Drop: Real-time optical sensing and AI-driven analysis of agricultural pathogens.">
+    <meta property="og:title" content="SPECTROGY — Optical Liquid Intelligence Platform">
+    <meta property="og:description" content="A deep-tech sensing platform for real-time molecular analysis of liquids. Spectroscopy, embedded hardware and AI in one architecture.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://spectrogy.com/">
     <meta property="og:image" content="https://spectrogy.com/images/og-preview.jpg">
 
     <style>
         :root{
-            --accent:#2B4C7E; //#3B4C7A;
-            --glass:rgba(255,255,255,.9);
-            --red: #dc2626;
-            --amber: #d97706;
+            --accent:#2B4C7E;
+            --accent-soft:#3B6BA5;
+            --glass:rgba(255,255,255,.92);
+            --glass-dark:rgba(15,22,35,.88);
+            --ink:#0b1220;
+            --muted:#5b6577;
+            --line:rgba(0,0,0,.08);
+            --red:#dc2626;
+            --amber:#d97706;
+            --emerald:#0f766e;
         }
 
         *{box-sizing:border-box}
 
         html,body{
             margin:0;
-            font-family:Inter,system-ui,sans-serif;
-            color:#111;
+            font-family: Inter, system-ui, -apple-system, sans-serif;
+            color: var(--ink);
             scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
         }
 
+        /* Background image preserved from original */
         .bg{
             position:fixed;
             inset:0;
             background:
-                linear-gradient(rgba(0,0,0,.5),rgba(0,0,0,.3)),
+                linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.35)),
                 url('./images/vfi3.webp');
-            background-size:cover;
-            background-position:center;
+            background-size: cover;
+            background-position: center;
             z-index:-1;
         }
 
         .page{
-            max-width:960px;
-            margin:auto;
-            padding:16px;
+            max-width: 980px;
+            margin: auto;
+            padding: 16px;
         }
 
         .card{
-            background:var(--glass);
-            border-radius:16px;
-            padding:20px;
-            margin-bottom:12px;
+            background: var(--glass);
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 12px;
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
+            border: 1px solid rgba(255,255,255,0.4);
         }
 
+        /* Header */
         header{
             display:flex;
-            justify-content:space-between;
-            align-items:center;
+            justify-content: space-between;
+            align-items: center;
         }
         .logo{
-            font-weight:800;
-            letter-spacing:2px;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: 2px;
         }
         .tagline{
-            font-size:14px;
-            opacity:.7;
-            font-family:monospace;
+            font-size: 13px;
+            opacity: .75;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
         }
 
-        .hero h1{
-            margin: 8px 0;
-            font-weight: 300;
-            font-size: clamp(1.8rem, 4vw, 2.5rem); 
-            line-height: 1.2;
+        /* Status pill in header */
+        .pill{
+            display:inline-flex;
+            align-items:center;
+            gap:8px;
+            background: rgba(43,76,126,0.08);
+            color: var(--accent);
+            border: 1px solid rgba(43,76,126,0.2);
+            padding: 4px 10px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: 1px;
         }
-        .hero span{
+        .dot{
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--accent);
+            box-shadow: 0 0 0 0 rgba(43,76,126,.6);
+            animation: pulse 2.2s infinite;
+        }
+        @keyframes pulse{
+            0%{ box-shadow: 0 0 0 0 rgba(43,76,126,.55); }
+            70%{ box-shadow: 0 0 0 8px rgba(43,76,126,0); }
+            100%{ box-shadow: 0 0 0 0 rgba(43,76,126,0); }
+        }
+
+        /* Hero */
+        .hero span.kicker{
             color: var(--accent);
             font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 2px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
             text-transform: uppercase;
             display: inline-block;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+        }
+        .hero h1{
+            margin: 4px 0 10px;
+            font-weight: 300;
+            font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+        }
+        .hero h1 b{
+            font-weight: 600;
+            color: var(--accent);
+        }
+        .hero p.lead{
+            font-size: 14px;
+            line-height: 1.55;
+            margin: 0 0 14px;
+            color: #1f2937;
+            max-width: 740px;
         }
 
-        .hero-ai{
-            margin-top:16px;
-            padding-top:12px;
-            border-top:1px solid rgba(0,0,0,.08);
+        /* Tag row under hero */
+        .tags{
+            display:flex;
+            flex-wrap:wrap;
+            gap: 6px;
+            margin-top: 14px;
+        }
+        .tag{
+            font-size: 11px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            background: rgba(11,18,32,0.05);
+            border: 1px solid rgba(11,18,32,0.08);
+            color: #1f2937;
+            padding: 5px 10px;
+            border-radius: 6px;
         }
 
-        .hero-ai h3{
-            margin:0 0 12px;
-            font-size:14px;
-            text-transform:uppercase;
-            letter-spacing:1px;
+        /* Section heading pattern reused */
+        .section-head{
+            border-top: 1px solid var(--line);
+            padding-top: 14px;
+            margin-top: 18px;
         }
-        
+        .section-head:first-child{
+            border-top: none;
+            padding-top: 0;
+            margin-top: 0;
+        }
+        .section-head h3{
+            margin: 0 0 4px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+        }
+        .section-head .sub{
+            margin: 0 0 14px;
+            font-size: 14px;
+            opacity: .75;
+        }
+
+        /* Technology platform — three pillars */
+        .pillars{
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin: 6px 0 14px;
+        }
+        .pillar{
+            background: rgba(255,255,255,0.55);
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+        .pillar .num{
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+        }
+        .pillar h4{
+            margin: 4px 0 6px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .pillar p{
+            margin: 0;
+            font-size: 13.5px;
+            line-height: 1.5;
+            color: #374151;
+        }
+
+        /* AI spectral imagery — preserved from original */
         .hero-ai-images{
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 12px;
-            max-width: 700px;
+            max-width: 740px;
         }
-
         .hero-ai-images img{
             width: 100%;
-            aspect-ratio: 16 / 9;     
-            object-fit: contain;     
+            aspect-ratio: 16 / 9;
+            object-fit: contain;
             background: #0b0f14;
             border-radius: 10px;
             display: block;
         }
-
-        .hero-ai p{
-            font-size: 15px; 
-            line-height: 1.6; 
-            margin-top: 16px;
+        .hero-ai p.note{
+            font-size: 14.5px;
+            line-height: 1.6;
+            margin-top: 14px;
+            color: #1f2937;
         }
 
+        /* Devices section — preserved layout */
         .devices{
-            display:grid;
-            grid-template-columns:1fr;
-            gap:16px;
-        }
-
-        .device{
-            display:flex;
-            flex-direction: column;
-            gap:12px;
-        }
-
-        .device-images{
-            display:grid;
-            grid-template-columns:1fr 1fr;
-            gap:8px;
-        }
-
-        .device-images img{
-            width:100%;
-            height: 200px;
-            border-radius:12px;
-            background:#f1f5f9;
-            padding:6px;
-            object-fit:cover;
-        }
-
-        .device strong{
-            font-size:16px;
-            display: block;
-            margin-bottom: 4px;
-        }
-
-        /* ── Detection Status Styles ── */
-        .status-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+        .device{
+            display: flex;
+            flex-direction: column;
             gap: 12px;
-            margin: 16px 0;
+        }
+        .device-images{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+        .device-images img{
+            width: 100%;
+            height: 140px;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+        .device .meta{
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 10.5px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2px;
+        }
+        .device strong{
+            font-size: 16px;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .device p{
+            margin: 0 0 6px;
+            font-size: 14px;
+            line-height: 1.55;
+            color: #1f2937;
+        }
+        .device .specs{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .device .specs span{
+            font-size: 11px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: 1px;
+            background: rgba(43,76,126,0.07);
+            color: var(--accent);
+            padding: 3px 8px;
+            border-radius: 6px;
         }
 
-        .status-item {
-            padding: 12px 16px;
+        /* Industries — multi-industry cards */
+        .industries{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .industry{
+            background: rgba(255,255,255,0.55);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--accent);
+            border-radius: 10px;
+            padding: 14px;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .industry:hover{
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(11,18,32,0.08);
+        }
+        .industry .ix-kicker{
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 10px;
+            letter-spacing: 1.4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 6px;
+        }
+        .industry h5{
+            margin: 0 0 6px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .industry p{
+            margin: 0;
+            font-size: 13px;
+            line-height: 1.5;
+            color: #374151;
+        }
+        /* Expandable details inside an industry card */
+        .industry details{
+            margin-top: 10px;
+            border-top: 1px dashed rgba(11,18,32,0.12);
+            padding-top: 8px;
+        }
+        .industry details summary{
+            cursor: pointer;
+            list-style: none;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 10.5px;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+            transition: opacity .2s ease;
+        }
+        .industry details summary:hover{ opacity: 0.78; }
+        .industry details summary::-webkit-details-marker{ display: none; }
+        .industry details summary::after{
+            content: "+";
+            font-size: 14px;
+            line-height: 1;
+            font-family: Inter, system-ui, sans-serif;
+            font-weight: 400;
+            transition: transform .25s ease;
+            display: inline-block;
+        }
+        .industry details[open] summary::after{
+            content: "−";
+        }
+        .industry details .reveal{
+            margin-top: 10px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #374151;
+            animation: revealIn .25s ease-out;
+        }
+        .industry details .reveal .reg{
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 10.5px;
+            letter-spacing: 0.5px;
+            color: var(--muted);
+            margin-top: 8px;
+            padding-top: 6px;
+            border-top: 1px dotted rgba(11,18,32,0.08);
+        }
+        .industry details .reveal .reg b{
+            color: var(--accent);
+            font-weight: 600;
+        }
+        @keyframes revealIn{
+            from{ opacity: 0; transform: translateY(-4px); }
+            to{ opacity: 1; transform: translateY(0); }
+        }
+
+        /* Account button in header */
+        .account-btn{
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #fff;
+            text-decoration: none;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.6px;
+            padding: 8px 14px;
+            border-radius: 8px;
+            border: 1px solid var(--accent);
+            transition: background .2s ease, transform .2s ease;
+            white-space: nowrap;
+        }
+        .account-btn:hover{
+            background: var(--accent-soft);
+            transform: translateY(-1px);
+        }
+        .account-btn svg{
+            width: 13px;
+            height: 13px;
+            flex-shrink: 0;
+        }
+        header .head-right{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        @media (max-width: 480px){
+            .account-btn{
+                padding: 7px 11px;
+                font-size: 11px;
+            }
+            header .head-right{ gap: 6px; }
+            header .pill{ display: none; }
+        }
+
+        /* Why AI is essential — system architecture block */
+        .moat{
+            background: linear-gradient(180deg, rgba(43,76,126,0.04), rgba(43,76,126,0.01));
+            border: 1px solid rgba(43,76,126,0.15);
             border-radius: 12px;
-            background: rgba(0, 0, 0, 0.03);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            padding: 16px 18px;
+            margin-top: 4px;
+        }
+        .moat h4{
+            margin: 0 0 8px;
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .moat ul{
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+        .moat li{
+            font-size: 13.5px;
+            line-height: 1.55;
+            padding: 9px 0;
+            border-top: 1px dashed rgba(11,18,32,0.12);
+            display: grid;
+            grid-template-columns: 28px 1fr;
+            gap: 8px;
+            align-items: start;
+        }
+        .moat li:first-child{ border-top: none; padding-top: 4px; }
+        .moat li .ix{
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 11px;
+            color: var(--accent);
+            letter-spacing: 1px;
+            padding-top: 2px;
+        }
+        .moat li b{
+            display: block;
+            font-weight: 600;
+            margin-bottom: 2px;
+            color: var(--ink);
+        }
+        .moat li span.body{
+            color: #374151;
+        }
+
+        /* AI architecture diagram */
+        .ai-diagram{
+            background: #0b1220;
+            border-radius: 12px;
+            padding: 18px 16px 14px;
+            margin: 14px 0 16px;
+            position: relative;
+            overflow: hidden;
+        }
+        .ai-diagram .ai-diagram-caption{
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 10.5px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.55);
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        .ai-diagram svg{
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+        .ai-diagram .ai-legend{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            justify-content: center;
+            margin-top: 10px;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 10.5px;
+            color: rgba(255,255,255,0.7);
+            letter-spacing: 0.6px;
+        }
+        .ai-legend span{
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .ai-legend i{
+            width: 9px;
+            height: 9px;
+            border-radius: 2px;
+            display: inline-block;
+            font-style: normal;
+        }
+
+        /* Pathogen/detection status grid — preserved */
+        .status-grid{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 10px;
+            margin: 12px 0;
+        }
+        .status-item{
+            padding: 12px 14px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.03);
+            border: 1px solid rgba(0,0,0,0.05);
             font-size: 14px;
             line-height: 1.4;
         }
-
-        .status-item span {
+        .status-item span.kicker{
             display: block;
-            font-family: monospace;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
             font-size: 10px;
             text-transform: uppercase;
             letter-spacing: 1px;
             margin-bottom: 4px;
-            opacity: 0.6;
+            opacity: 0.65;
         }
+        .status-item em{ font-style: italic; font-weight: 600; }
+        .virus-accent{ border-left: 3px solid var(--red); }
+        .bacteria-accent{ border-left: 3px solid var(--amber); }
+        .generic-accent{ border-left: 3px solid var(--accent); }
 
-        .status-item em {
-            font-style: italic;
-            font-weight: 600;
-        }
-
-        .virus-accent { border-left: 4px solid var(--red); }
-        .bacteria-accent { border-left: 4px solid var(--amber); }
-
-        .status-note {
+        .status-note{
             font-size: 13px;
-            opacity: 0.7;
+            opacity: 0.78;
             border-top: 1px solid rgba(0,0,0,0.08);
             padding-top: 12px;
-            margin-top: 8px;
+            margin-top: 6px;
+            line-height: 1.55;
         }
 
-        .invest a{
-            color:var(--accent);
-            text-decoration:none;
-            font-weight:600;
-            transition: opacity 0.2s;
-        }
-        .invest a:hover{
-            opacity: 0.8;
-        }
-
-        .highlight {
+        /* Highlight underline used in original */
+        .highlight{
             border-bottom: 1px solid var(--accent);
             color: inherit;
         }
 
-        footer{
-            text-align:center;
-            font-size:12px;
-            padding:20px 0;
-            color: rgba(255,255,255,0.8);
+        /* Contact / invest */
+        .invest a{
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: opacity .2s;
         }
+        .invest a:hover{ opacity: 0.78; }
 
-        @media(min-width:768px){
-            .devices{ grid-template-columns:1fr 1fr; }
-            .hero-ai-images { gap: 12px; }
+        footer{
+            text-align: center;
+            font-size: 12px;
+            padding: 20px 0;
+            color: rgba(255,255,255,0.85);
         }
-        @media (max-width: 480px) {
-            .hero-ai-images { 
-                grid-template-columns: 1fr; 
-                width: 70%; 
-                margin: 0 auto 16px auto;
+        footer a{ color: rgba(255,255,255,0.7); text-decoration: none; }
+
+        /* Responsive */
+        @media (min-width: 768px){
+            .devices{ grid-template-columns: 1fr 1fr; }
+            .pillars{ grid-template-columns: repeat(3, 1fr); }
+            .hero-ai-images{ gap: 12px; }
+        }
+        @media (max-width: 480px){
+            .hero-ai-images{
+                grid-template-columns: 1fr;
+                width: 80%;
+                margin: 0 auto 8px auto;
             }
-            .hero h1 { white-space: normal; }
+            .hero h1{ white-space: normal; }
+            .device-images img{ height: 120px; }
         }
     </style>
 </head>
@@ -246,43 +615,120 @@
 <div class="bg"></div>
 
 <main class="page">
+
+    <!-- Header: repositioned from agro to deep-tech platform -->
     <header class="card">
-        <div class="logo">SPECTROGY</div>
-        <div class="tagline">L-SDA Analyzer TECH</div>
+        <div>
+            <div class="logo">SPECTROGY</div>
+            <div class="tagline">Deep-Tech Sensing Platform</div>
+        </div>
+        <div class="head-right">
+            <div class="pill"><span class="dot"></span> L-SDA Analyzer · v2</div>
+            <a href="https://app.spectrogy.com/" target="_blank" rel="noopener noreferrer" class="account-btn" aria-label="Open account dashboard">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                </svg>
+                Log In
+            </a>
+        </div>
     </header>
 
+    <!-- Hero: deep-tech positioning, multi-industry focus -->
     <section class="card hero">
-        <span>Optical BOX Sensors & AI Software</span>
-        <h1>The Future of Fluid Intelligence</h1>
-        <p>
-             DLS (Dynamic Light Scattering) & LASCA (Laser Speckle Contrast Analysis) <br>
-             AI-driven mathematical analysis of spectra for precise measurement extraction.
+        <span class="kicker">Optical Liquid Intelligence · AI · Real-Time Sensing</span>
+        <h1><b>Reagent-free, real-time detection</b> in flowing liquids.</h1>
+        <p class="lead">
+            Spectrogy is a deep-tech sensing platform that combines optical spectroscopy, embedded hardware
+            and AI-driven signal analysis to deliver continuous, inline insight into liquids — from greenhouse
+            irrigation and beverage production to process water, bioreactors and industrial cooling loops.
         </p>
 
-        <div class="hero-ai">
-            <h3>AI Spectral Analysis</h3>
+        <div class="tags">
+            <span class="tag">Spectroscopy</span>
+            <span class="tag">Embedded Hardware</span>
+            <span class="tag">AI Signal Analysis</span>
+            <span class="tag">Cloud Analytics</span>
+            <span class="tag">Inline · No Consumables</span>
+        </div>
+
+        <!-- AI spectral images preserved from original -->
+        <div class="hero-ai" style="margin-top:18px; padding-top:14px; border-top:1px solid var(--line);">
+            <h3 style="margin:0 0 12px; font-size:14px; text-transform:uppercase; letter-spacing:1.2px;">AI Spectral Analysis</h3>
             <div class="hero-ai-images">
                 <img src="./images/dashboard.webp" alt="Optical spectrum analysis dashboard">
                 <img src="./images/detection.webp" alt="Optical spectrum analysis detection">
                 <img src="./images/graph2.webp" alt="Optical spectrum analysis graph 2">
             </div>
-            <p>
-                Detection is powered by DLS particle characterisation and LASCA flow dynamics analysis, with pathogen classification performed by AI models trained on optical spectral databases. The system operates inline, continuously, and without consumables — providing actionable alerts within seconds of contamination events.
+            <p class="note">
+                The platform extracts physically meaningful measurements from complex optical spectra in real time.
+                AI models trained on curated spectral databases classify events within seconds, operate inline and
+                require no reagents, consumables or sample preparation.
             </p>
         </div>
     </section>
 
+    <!-- Technology Platform: three pillars, no proprietary disclosure -->
     <section class="card">
+        <div class="section-head">
+            <h3>Technology Platform</h3>
+            <p class="sub">Three layers, one continuous measurement architecture.</p>
+        </div>
+
+        <div class="pillars">
+            <div class="pillar">
+                <div class="num">01 · SENSING</div>
+                <h4>Optical front-end</h4>
+                <p>
+                    Multi-modal optical sensing extracts a rich physical fingerprint from a flowing liquid stream
+                    — particles, biological matter, dissolved compounds — in a single integrated probe.
+                </p>
+            </div>
+            <div class="pillar">
+                <div class="num">02 · COMPUTE</div>
+                <h4>Embedded AI</h4>
+                <p>
+                    On-device signal processing and trained classifiers turn raw optical data into structured events,
+                    concentrations and anomaly alerts. Decisions happen at the sensor, in milliseconds.
+                </p>
+            </div>
+            <div class="pillar">
+                <div class="num">03 · CLOUD</div>
+                <h4>Continuous monitoring</h4>
+                <p>
+                    Sensor fleets stream to a cloud layer that delivers dashboards, alerting, historical analytics
+                    and model updates — enabling distributed monitoring across multiple sites.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deployed devices: Gen I and Gen II preserved, with stronger deep-tech framing -->
+    <section class="card">
+        <div class="section-head">
+            <h3>Deployed Hardware</h3>
+            <p class="sub">Two production form factors. Same measurement core.</p>
+        </div>
+
         <div class="devices">
             <article class="device">
                 <div class="device-images">
-                    <img src="./images/IMG_4090.webp" alt="Gen I Static Analyzer Device">
-                    <img src="./images/IMG_4094.webp" alt="Winery batch analysis process">
+                    <img src="./images/IMG_4090.webp" alt="Gen I Static Analyzer">
+                    <img src="./images/IMG_4094.webp" alt="Winery batch analysis">
                 </div>
                 <div>
-                    <strong>Gen I — Static Analyzer</strong>
-                    Laboratory and winery batch spectral <span class="highlight">real-time</span> analysis.<br> 
-                    <span class="highlight">volatile acid</span>, conversion of <span class="highlight">malic acid</span>, and <span class="highlight">brettanomyces</span> measurements.
+                    <div class="meta">GEN I · STATIC ANALYZER</div>
+                    <p>
+                        Laboratory and production-floor batch <span class="highlight">spectral analysis</span> for liquids.
+                        Field-validated in wineries for <span class="highlight">volatile acidity</span>, conversion of
+                        <span class="highlight">malic acid</span> and <span class="highlight">Brettanomyces</span> monitoring,
+                        with results available in seconds rather than days.
+                    </p>
+                    <div class="specs">
+                        <span>BATCH</span>
+                        <span>LAB · QC</span>
+                        <span>BEVERAGE</span>
+                    </div>
                 </div>
             </article>
 
@@ -292,93 +738,504 @@
                     <img src="./images/IMG_4072.webp" alt="Pipeline quality monitoring">
                 </div>
                 <div>
-                    <strong>Gen II — Inline Flow Sensor</strong>
-                    Continuous spectral monitoring directly in pipelines.<br>
-                    real-time water quality tracking for <span class="highlight">industrial greenhouses</span>: 
-                    instant detection of <span class="highlight">bacteria</span> and <span class="highlight">viruses</span> in the flow.
+                    <div class="meta">GEN II · INLINE FLOW SENSOR</div>
+                    <p>
+                        Continuous <span class="highlight">spectral monitoring</span> directly inside a flowing pipeline.
+                        Deployed in <span class="highlight">industrial greenhouses</span> for real-time detection of
+                        <span class="highlight">bacteria</span> and <span class="highlight">viruses</span> in irrigation water,
+                        with the same architecture extensible to process water, bioreactors and industrial loops.
+                    </p>
+                    <div class="specs">
+                        <span>INLINE</span>
+                        <span>24 / 7</span>
+                        <span>NO CONSUMABLES</span>
+                    </div>
                 </div>
             </article>
         </div>
     </section>
 
+    <!-- Industry applications: flat list with expandable details per card -->
     <section class="card">
-        <div class="hero-ai" style="border-top: none; margin-top: 0; padding-top: 0;">
-            <h3>Target Pathogens & Biosensing</h3>
-            <p style="margin-top: 4px; font-size: 14px; opacity: 0.8;">
-                real-time inline detection library for industrial agriculture.
-            </p>
+        <div class="section-head">
+            <h3>Industry Applications</h3>
+            <p class="sub">One measurement platform — deployed and adaptable across liquid-driven verticals.</p>
+        </div>
+
+        <div class="industries">
+
+            <!-- Cooling towers & pools — Legionella (ASHRAE 188 / NYC Subpart 4-1) -->
+            <div class="industry">
+                <div class="ix-kicker">WATER · BUILDINGS</div>
+                <h5>Cooling towers, spas & pools</h5>
+                <p>
+                    Continuous online detection of <em>Legionella</em> and microbial load in cooling towers,
+                    aquatic facilities and large-building water systems.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Replaces 90-day lab cultures with real-time bio-surveillance. Targets facility managers in
+                        hospitals, hotels and large residential buildings, with water-treatment vendors as a
+                        channel partner.
+                        <div class="reg"><b>Driver:</b> ASHRAE 188 · NYC 10 NYCRR Subpart 4-1</div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Online Water Bioburden Analyzer (OWBA) — pharma water USP <1231> -->
+            <div class="industry">
+                <div class="ix-kicker">PHARMA</div>
+                <h5>Online Water Bioburden Analyzer</h5>
+                <p>
+                    Real-time bioburden monitoring for pharmaceutical Purified Water and Water-for-Injection loops
+                    in GMP manufacturing.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Eliminates sampling errors and accelerates batch release, replacing 24–72 hour off-line
+                        microbiology with statistically significant inline data. A single validated deployment with
+                        a top-tier pharma company becomes a reference for the decade.
+                        <div class="reg"><b>Driver:</b> USP &lt;1231&gt; · EP 0169 · FDA 21 CFR 211</div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Agricultural pathogens — greenhouses and vertical farms -->
+            <div class="industry">
+                <div class="ix-kicker">AGRICULTURE</div>
+                <h5>Greenhouse & vertical farm pathogens</h5>
+                <p>
+                    Inline monitoring of irrigation and recirculation water for plant viruses and bacterial
+                    pathogens.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        The validated home deployment that anchors the platform and continuously trains its
+                        spectral library. A short list of high-tech producers — Bowery, Plenty, Gotham Greens,
+                        80 Acres — represents the natural pilot set.
+                        <div class="reg"><b>Targets:</b> PepMV · ToBRFV · <em>Clavibacter</em> · <em>Pseudomonas</em></div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Aquaculture — RAS shrimp & salmon -->
+            <div class="industry">
+                <div class="ix-kicker">AQUACULTURE</div>
+                <h5>RAS shrimp & salmon farms</h5>
+                <p>
+                    Continuous water monitoring in recirculating aquaculture systems for bacterial and viral
+                    pathogens.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        A single undetected outbreak of <em>Vibrio</em>, IHN or ISA can cost millions in lost
+                        biomass. The fastest-growing segment of US aquaculture — Atlantic Sapphire, Riverence,
+                        AquaBounty — actively co-funds pilots through USDA NIFA programs.
+                        <div class="reg"><b>Driver:</b> USDA NIFA pilot programs · biosecurity standards</div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Dental unit waterlines (DUWL) -->
+            <div class="industry">
+                <div class="ix-kicker">HEALTHCARE</div>
+                <h5>Dental unit waterlines</h5>
+                <p>
+                    Compact inline sensor for dental chair waterlines, ensuring continuous compliance with the
+                    500 CFU/mL hygiene threshold.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Approximately 200,000 dental practices in the United States currently rely on weekly
+                        cartridge tests. A small, low-cost inline sensor distributed through dental-equipment
+                        manufacturers fits a high-volume SKU with recurring calibration revenue.
+                        <div class="reg"><b>Driver:</b> CDC · ADA · EPA potable-water threshold</div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Beverage — wine, brewing, dairy -->
+            <div class="industry">
+                <div class="ix-kicker">BEVERAGE</div>
+                <h5>Wine, brewing & dairy</h5>
+                <p>
+                    Real-time tracking of fermentation chemistry, contamination and CIP verification across
+                    wineries, breweries and dairy plants.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Already field-validated in wineries on the Gen I analyzer. The same architecture scales
+                        to CIP verification in food &amp; beverage plants, where inline confirmation replaces
+                        manual ATP swabs and shortens turnaround between batches.
+                        <div class="reg"><b>Driver:</b> FDA FSMA · SQF certification</div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Biotech — bioreactor monitoring -->
+            <div class="industry">
+                <div class="ix-kicker">BIOTECH</div>
+                <h5>Bioreactor monitoring</h5>
+                <p>
+                    Early contamination signal for bioreactors via bypass-loop sensing.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        A contaminated bioreactor batch costs $500k–5M and is currently tested off-line once per
+                        day. Inline optical sensing detects anomalous growth hours before traditional methods —
+                        critical in cell &amp; gene therapy, where a single batch equals a single patient.
+                        <div class="reg"><b>Context:</b> CGT manufacturing · biopharma QC</div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Industrial — process & reuse water -->
+            <div class="industry">
+                <div class="ix-kicker">INDUSTRIAL</div>
+                <h5>Process & reuse water</h5>
+                <p>
+                    Distributed monitoring for municipal water reuse, industrial cooling loops and process water
+                    streams.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Direct and indirect potable reuse programs in California and Texas, plus industrial
+                        process water across heavy industry, require continuous online pathogen monitoring at
+                        scale. Sensor fleets stream into the same cloud analytics layer used across other
+                        verticals.
+                        <div class="reg"><b>Driver:</b> EPA water-reuse framework · Title 22 (CA)</div>
+                    </div>
+                </details>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Detection library preserved -->
+    <section class="card">
+        <div class="section-head">
+            <h3>Detection Library</h3>
+            <p class="sub">Validated inline targets — expanding with each new dataset.</p>
         </div>
 
         <div class="status-grid">
             <div class="status-item virus-accent">
-                <span>Virus Detection</span>
+                <span class="kicker">Virus Detection</span>
                 <strong><em>Pepino mosaic virus</em></strong> (PepMV)
             </div>
             <div class="status-item virus-accent">
-                <span>Virus Detection</span>
+                <span class="kicker">Virus Detection</span>
                 <strong><em>Tomato brown rugose fruit virus</em></strong> (ToBRFV)
             </div>
             <div class="status-item bacteria-accent">
-                <span>Bacterial Detection</span>
+                <span class="kicker">Bacterial Detection</span>
                 <strong><em>Clavibacter michiganensis</em></strong>
             </div>
             <div class="status-item bacteria-accent">
-                <span>Bacterial Detection</span>
+                <span class="kicker">Bacterial Detection</span>
                 <strong><em>Pseudomonas corrugata</em></strong>
+            </div>
+            <div class="status-item generic-accent">
+                <span class="kicker">Beverage Chemistry</span>
+                <strong>Volatile acidity · malic conversion · <em>Brettanomyces</em></strong>
+            </div>
+            <div class="status-item generic-accent">
+                <span class="kicker">Process Water</span>
+                <strong>Microbial load · turbidity events · CIP residues</strong>
             </div>
         </div>
 
         <p class="status-note">
-            The Spectrogy platform provides <strong>real-time monitoring</strong> for these high-priority pathogens. 
-            The detection library expands continuously as new spectral training data is acquired for <u>plant viruses</u> and <u>bacterial pathogens</u>.
+            The Spectrogy platform provides <strong>real-time monitoring</strong> across these targets today.
+            The library expands continuously as new spectral training data is acquired for additional
+            <u>pathogens, chemistries and process signatures</u>.
         </p>
     </section>
 
-    <section class="card invest">
-    <div class="hero-ai" style="border-top: none; margin-top: 0; padding-top: 0;">
-            <h3>Scaling Agricultural Innovation</h3>
-            <p style="margin-top: 4px; font-size: 14px; opacity: 0.8;">
-                From validated prototype to commercial deployment.
-            </p>
+    <!-- Why AI is essential to the platform — derived from system architecture -->
+    <section class="card">
+        <div class="section-head">
+            <h3>Why AI Is Essential to Spectrogy</h3>
+            <p class="sub">No single optical signal is enough. Discrimination lives in the joint feature space — and only AI can read it.</p>
         </div>
-    <p>
-    Spectrogy is advancing from validated prototype to commercial deployment in industrial greenhouse operations. We are actively seeking Series A investment and strategic partners across agri-tech, water infrastructure, and precision agriculture to accelerate this transition.
-    </p>
-    <p>
-    We welcome inquiries from investors, industry partners, and scientific collaborators. Technology demonstrations are available on request.
-    </p>
-    <div style="margin-top: 24px;">
-    <span class="tagline">Contact Us:</span><br>
 
-    <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:10px;">
-        <a href="mailto:hello@spectrogy.com" style="font-size:1.1rem; text-decoration:none; color: var(--accent);">
-            hello@spectrogy.com
-        </a>
-        <a href="https://www.linkedin.com/company/spectrogy/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; font-size:1.05rem; text-decoration:none; color: var(--accent);">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.34 17V10.5H5.67V17H8.34M7 9.23A1.55 1.55 0 1 0 7 6.13A1.55 1.55 0 0 0 7 9.23M18.33 17V13.4C18.33 11.44 17.29 10.5 15.91 10.5C14.83 10.5 14.34 11.09 14.07 11.5V10.5H11.4V17H14.07V13.5C14.07 12.59 14.42 11.7 15.5 11.7C16.56 11.7 16.58 12.66 16.58 13.57V17H18.33Z"/></svg>
-            LinkedIn
-        </a>
-        <a href="https://t.me/spectrogy" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; font-size:1.05rem; text-decoration:none; color:var(--accent);">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.04 15.47L8.87 18.47C9.17 18.47 9.31 18.34 9.48 18.17L10.9 16.79L13.88 19.02C14.43 19.32 14.82 19.17 14.97 18.51L18.42 4.73L18.43 4.72C18.61 3.95 18.15 3.65 17.62 3.85L2.89 9.53C2.12 9.83 2.13 10.25 2.76 10.45L6.47 11.62L15.39 6.05C15.81 5.78 16.19 5.93 15.87 6.2L9.04 15.47Z"/></svg>
-            Telegram
-        </a>
-    </div>
-</div>
-</section>
+        <!-- Architecture diagram: optical inputs → AI pipeline → detection event. AI shown across all stages -->
+        <div class="ai-diagram">
+            <div class="ai-diagram-caption">AI participates in every stage — from calibration to final decision</div>
 
-<footer>
-    <div style="margin-bottom: 10px;">
-        <a href="https://www.linkedin.com/company/spectrogy/" target="_blank" style="color:rgba(255,255,255,0.6); text-decoration:none;">LinkedIn</a> · 
-        <a href="mailto:hello@spectrogy.com" style="color:rgba(255,255,255,0.6); text-decoration:none;">E-Mail</a> · 
-        <a href="https://t.me/spectrogy" target="_blank" style="color:rgba(255,255,255,0.6); text-decoration:none;">Telegram</a>
-    </div>
-    SPECTROGY © 2026 · spectrogy.com
-</footer>
-   
+            <svg viewBox="0 0 880 380" xmlns="http://www.w3.org/2000/svg" aria-label="Spectrogy AI architecture">
+                <defs>
+                    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L8,3 L0,6 z" fill="#6b8cb8"/>
+                    </marker>
+                    <marker id="arrowAccent" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L8,3 L0,6 z" fill="#4a7fc8"/>
+                    </marker>
+                    <marker id="arrowAi" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth">
+                        <path d="M0,0 L8,3 L0,6 z" fill="#7ab2ff"/>
+                    </marker>
+                </defs>
+
+                <!-- ============================== -->
+                <!-- TOP ROW: linear signal pipeline -->
+                <!-- ============================== -->
+
+                <!-- Column 1: three optical modalities -->
+                <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#9ab2d4" letter-spacing="1">
+                    <text x="90" y="22" text-anchor="middle">OPTICAL INPUTS</text>
+                </g>
+
+                <g>
+                    <rect x="20" y="44" width="140" height="50" rx="8" fill="#0f1a2e" stroke="#2c5fa8" stroke-width="1.2"/>
+                    <circle cx="38" cy="69" r="6" fill="#4ade80"/>
+                    <text x="54" y="65" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Laser speckle</text>
+                    <text x="54" y="81" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">Particle dynamics</text>
+                </g>
+
+                <g>
+                    <rect x="20" y="108" width="140" height="50" rx="8" fill="#0f1a2e" stroke="#2c5fa8" stroke-width="1.2"/>
+                    <circle cx="38" cy="133" r="6" fill="#a78bfa"/>
+                    <text x="54" y="129" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Autofluorescence</text>
+                    <text x="54" y="145" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">Biological emission</text>
+                </g>
+
+                <g>
+                    <rect x="20" y="172" width="140" height="50" rx="8" fill="#0f1a2e" stroke="#2c5fa8" stroke-width="1.2"/>
+                    <circle cx="38" cy="197" r="6" fill="#60a5fa"/>
+                    <text x="54" y="193" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">UV absorption</text>
+                    <text x="54" y="209" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">Molecular signal</text>
+                </g>
+
+                <!-- Arrows: three optical inputs converge into fingerprint -->
+                <line x1="160" y1="69"  x2="240" y2="130" stroke="#6b8cb8" stroke-width="1.4" marker-end="url(#arrow)"/>
+                <line x1="160" y1="133" x2="240" y2="133" stroke="#6b8cb8" stroke-width="1.4" marker-end="url(#arrow)"/>
+                <line x1="160" y1="197" x2="240" y2="136" stroke="#6b8cb8" stroke-width="1.4" marker-end="url(#arrow)"/>
+
+                <!-- Column 2: joint multi-modal fingerprint -->
+                <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#9ab2d4" letter-spacing="1">
+                    <text x="310" y="22" text-anchor="middle">JOINT FINGERPRINT</text>
+                </g>
+                <g>
+                    <rect x="246" y="84" width="128" height="98" rx="8" fill="#0f1a2e" stroke="#3b6ba5" stroke-width="1.4"/>
+                    <text x="310" y="118" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#e6edf7">Multi-modal</text>
+                    <text x="310" y="135" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#e6edf7">fingerprint</text>
+                    <text x="310" y="158" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">structured feature set</text>
+                </g>
+
+                <!-- Arrow to classification -->
+                <line x1="374" y1="133" x2="430" y2="133" stroke="#4a7fc8" stroke-width="1.6" marker-end="url(#arrowAccent)"/>
+
+                <!-- Column 3: AI classification -->
+                <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#9ab2d4" letter-spacing="1">
+                    <text x="528" y="22" text-anchor="middle">AI CLASSIFICATION</text>
+                </g>
+                <g>
+                    <rect x="436" y="74" width="184" height="118" rx="8" fill="#0f1a2e" stroke="#3b6ba5" stroke-width="1.4"/>
+                    <text x="528" y="106" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="13" font-weight="700" fill="#e6edf7">Trained classifier</text>
+                    <text x="528" y="128" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#9ab2d4">anomaly detection</text>
+                    <text x="528" y="146" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#9ab2d4">target identification</text>
+                    <text x="528" y="164" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="11" fill="#9ab2d4">confidence assessment</text>
+                </g>
+
+                <!-- Branch: confident decision -->
+                <path d="M 620 110 Q 680 110 720 90" stroke="#4ade80" stroke-width="1.6" fill="none" marker-end="url(#arrowAccent)"/>
+                <text x="648" y="100" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" fill="#4ade80" letter-spacing="0.5">confident</text>
+
+                <!-- Branch: ambiguous → AI reasoning -->
+                <path d="M 620 160 Q 680 180 720 200" stroke="#fbbf24" stroke-width="1.6" fill="none" marker-end="url(#arrowAccent)"/>
+                <text x="644" y="195" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="9.5" fill="#fbbf24" letter-spacing="0.5">ambiguous</text>
+
+                <!-- Output: Detection event -->
+                <g>
+                    <rect x="720" y="52" width="140" height="58" rx="8" fill="#0f1a2e" stroke="#4ade80" stroke-width="1.2"/>
+                    <text x="790" y="74" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Detection event</text>
+                    <text x="790" y="90" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">logged · alert raised</text>
+                </g>
+
+                <!-- Output: AI reasoning advisor -->
+                <g>
+                    <rect x="720" y="166" width="140" height="66" rx="8" fill="#0f1a2e" stroke="#fbbf24" stroke-width="1.2"/>
+                    <text x="790" y="188" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">AI reasoning</text>
+                    <text x="790" y="204" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">interpretation +</text>
+                    <text x="790" y="218" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">operator action</text>
+                </g>
+
+                <!-- Loop back from reasoning to detection event -->
+                <path d="M 790 166 L 790 116" stroke="#fbbf24" stroke-width="1.2" stroke-dasharray="3 3" fill="none" marker-end="url(#arrowAccent)"/>
+
+                <!-- ============================== -->
+                <!-- BOTTOM ROW: AI cuts across the pipeline -->
+                <!-- ============================== -->
+
+                <!-- Encompassing AI band -->
+                <rect x="20" y="260" width="840" height="96" rx="10" fill="rgba(58,107,180,0.10)" stroke="#3b6ba5" stroke-width="1.2" stroke-dasharray="4 3"/>
+
+                <!-- Band caption -->
+                <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#7ab2ff" letter-spacing="1.5">
+                    <text x="36" y="278">AI · ACROSS THE FULL PIPELINE</text>
+                </g>
+
+                <!-- Stage 1: Calibration -->
+                <g>
+                    <rect x="36" y="290" width="186" height="50" rx="6" fill="#0f1a2e" stroke="#3b6ba5" stroke-width="1"/>
+                    <text x="129" y="310" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Sensor calibration</text>
+                    <text x="129" y="326" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">noise baselines · drift correction</text>
+                </g>
+
+                <!-- Stage 2: Signal interpretation -->
+                <g>
+                    <rect x="232" y="290" width="186" height="50" rx="6" fill="#0f1a2e" stroke="#3b6ba5" stroke-width="1"/>
+                    <text x="325" y="310" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Signal interpretation</text>
+                    <text x="325" y="326" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">fingerprint construction</text>
+                </g>
+
+                <!-- Stage 3: Classification -->
+                <g>
+                    <rect x="428" y="290" width="186" height="50" rx="6" fill="#0f1a2e" stroke="#3b6ba5" stroke-width="1"/>
+                    <text x="521" y="310" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Target classification</text>
+                    <text x="521" y="326" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">online learning · adaptive</text>
+                </g>
+
+                <!-- Stage 4: Expert reasoning -->
+                <g>
+                    <rect x="624" y="290" width="220" height="50" rx="6" fill="#0f1a2e" stroke="#3b6ba5" stroke-width="1"/>
+                    <text x="734" y="310" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Expert reasoning</text>
+                    <text x="734" y="326" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">ambiguity handling · advice</text>
+                </g>
+
+                <!-- Faint dotted ties from each top-row stage down to its corresponding AI stage -->
+                <line x1="90"  y1="222" x2="90"  y2="290" stroke="#7ab2ff" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.7"/>
+                <line x1="310" y1="182" x2="310" y2="290" stroke="#7ab2ff" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.7"/>
+                <line x1="528" y1="192" x2="528" y2="290" stroke="#7ab2ff" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.7"/>
+                <line x1="790" y1="232" x2="790" y2="290" stroke="#7ab2ff" stroke-width="0.8" stroke-dasharray="2 3" opacity="0.7"/>
+            </svg>
+
+            <div class="ai-legend">
+                <span><i style="background:#4ade80"></i> confident decision path</span>
+                <span><i style="background:#fbbf24"></i> ambiguous → AI reasoning</span>
+                <span><i style="background:#7ab2ff"></i> AI active at this stage</span>
+            </div>
+        </div>
+
+        <div class="moat">
+            <p style="margin:0 0 12px; font-size:14px; line-height:1.6; color:#1f2937;">
+                Spectrogy combines three physically orthogonal optical signals — particle dynamics, biological
+                autofluorescence and molecular absorption — into a joint multi-modal fingerprint of the liquid
+                passing the sensor. <b>No single signal alone provides sufficient discrimination.</b> The
+                information that separates a clean stream from a contamination event lives in the joint
+                structure of all three measurements at once — and that is true at every stage of the pipeline,
+                not just at the final decision.
+            </p>
+            <ul>
+                <li>
+                    <span class="ix">01</span>
+                    <span class="body">
+                        <b>AI calibrates the sensor.</b>
+                        Optical sensors drift — light sources age, optics fog, ambient conditions shift. AI models
+                        learn the noise structure and baseline behaviour of each individual instrument and continuously
+                        correct for drift, separating real biological signal from instrumental change. Without this
+                        layer, every sensor would need a technician to recalibrate it.
+                    </span>
+                </li>
+                <li>
+                    <span class="ix">02</span>
+                    <span class="body">
+                        <b>One signal is never enough.</b>
+                        A small fast-diffusing particle could be a pathogen or a dust grain. A fluorescence spike
+                        could be a metabolite or an organic contaminant. A molecular absorption peak could be a
+                        nucleic acid or a dissolved compound. Only the joint pattern across all three modalities
+                        identifies what is actually flowing past the sensor — and only a trained model can read it.
+                    </span>
+                </li>
+                <li>
+                    <span class="ix">03</span>
+                    <span class="body">
+                        <b>Classification is geometric reasoning, not threshold checking.</b>
+                        Each measurement is a point in a high-dimensional feature space. Each target — clean water,
+                        a specific virus, a bacterial class — occupies its own region. Telling them apart requires a
+                        model that has been trained on labelled examples; no fixed-threshold sensor and no human
+                        operator can do this in real time.
+                    </span>
+                </li>
+                <li>
+                    <span class="ix">04</span>
+                    <span class="body">
+                        <b>The system learns continuously.</b>
+                        Each labelled measurement folds back into the classifier in real time. New pathogens and new
+                        process signatures can be added without changing the hardware — only the model. The fleet
+                        improves with every deployment, and the spectral library becomes a compounding proprietary
+                        asset that cannot be replicated from public data.
+                    </span>
+                </li>
+                <li>
+                    <span class="ix">05</span>
+                    <span class="body">
+                        <b>An AI reasoning layer handles ambiguous events.</b>
+                        When a measurement falls between confident classes, the full feature pattern is passed to
+                        an expert reasoning layer that returns a structured interpretation, alternative hypotheses
+                        and a recommended operator action. Expert-level analysis on every borderline event, without
+                        the wait of a lab confirmation.
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Investor / partnership section -->
+    <section class="card invest">
+        <div class="section-head">
+            <h3>Partnerships & Investment</h3>
+            <p class="sub">From validated platform to multi-industry deployment.</p>
+        </div>
+        <p style="margin:0 0 10px; font-size:14.5px; line-height:1.6;">
+            Spectrogy is moving from validated deployments in agriculture and beverages into water, biotech and
+            industrial process monitoring. We are working with strategic partners on enterprise pilots and are
+            engaging with deep-tech investors to accelerate this expansion.
+        </p>
+        <p style="margin:0 0 16px; font-size:14.5px; line-height:1.6;">
+            We welcome inquiries from investors, industrial partners and scientific collaborators.
+            Technology demonstrations are available on request.
+        </p>
+
+        <div style="margin-top: 18px;">
+            <span class="tagline">Contact:</span><br>
+            <div style="display:flex; align-items:center; gap:24px; flex-wrap:wrap; margin-top:10px;">
+                <a href="mailto:hello@spectrogy.com" style="font-size:1.05rem;">hello@spectrogy.com</a>
+                <a href="https://www.linkedin.com/company/spectrogy/" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; font-size:1.02rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19 3A2 2 0 0 1 21 5V19A2 2 0 0 1 19 21H5A2 2 0 0 1 3 19V5A2 2 0 0 1 5 3H19M8.34 17V10.5H5.67V17H8.34M7 9.23A1.55 1.55 0 1 0 7 6.13A1.55 1.55 0 0 0 7 9.23M18.33 17V13.4C18.33 11.44 17.29 10.5 15.91 10.5C14.83 10.5 14.34 11.09 14.07 11.5V10.5H11.4V17H14.07V13.5C14.07 12.59 14.42 11.7 15.5 11.7C16.56 11.7 16.58 12.66 16.58 13.57V17H18.33Z"/></svg>
+                    LinkedIn
+                </a>
+                <a href="https://t.me/spectrogy" target="_blank" rel="noopener noreferrer" style="display:inline-flex; align-items:center; gap:8px; font-size:1.02rem;">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M9.04 15.47L8.87 18.47C9.17 18.47 9.31 18.34 9.48 18.17L10.9 16.79L13.88 19.02C14.43 19.32 14.82 19.17 14.97 18.51L18.42 4.73L18.43 4.72C18.61 3.95 18.15 3.65 17.62 3.85L2.89 9.53C2.12 9.83 2.13 10.25 2.76 10.45L6.47 11.62L15.39 6.05C15.81 5.78 16.19 5.93 15.87 6.2L9.04 15.47Z"/></svg>
+                    Telegram
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div style="margin-bottom:10px;">
+            <a href="https://www.linkedin.com/company/spectrogy/" target="_blank">LinkedIn</a> ·
+            <a href="mailto:hello@spectrogy.com">E-Mail</a> ·
+            <a href="https://t.me/spectrogy" target="_blank">Telegram</a>
+        </div>
+        SPECTROGY © 2026 · spectrogy.com
+    </footer>
+
 </main>
+
 <!-- Cloudflare Web Analytics -->
-<script defer src='https://static.cloudflareinsights.com/beacon.min.js' 
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js'
     data-cf-beacon='{"token": "c90624c7d1974240a02b83da2ffec9eb"}'></script>
 <!-- End Cloudflare Web Analytics -->
+
 </body>
 </html>
