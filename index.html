@@ -130,7 +130,7 @@
         .hero h1{
             margin: 4px 0 10px;
             font-weight: 300;
-            font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+            font-size: clamp(1.375rem, 2.4vw, 1.95rem);
             line-height: 1.15;
             letter-spacing: -0.01em;
         }
@@ -358,17 +358,23 @@
         }
         .industry details summary:hover{ opacity: 0.78; }
         .industry details summary::-webkit-details-marker{ display: none; }
+        /* Hide the literal "More" label inside <summary> so the ::after pseudo-element controls the text */
+        .industry details summary{
+            font-size: 0;
+        }
         .industry details summary::after{
-            content: "+";
-            font-size: 14px;
+            content: "more";
+            font-size: 10.5px;
             line-height: 1;
-            font-family: Inter, system-ui, sans-serif;
-            font-weight: 400;
-            transition: transform .25s ease;
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            transition: opacity .2s ease;
             display: inline-block;
         }
         .industry details[open] summary::after{
-            content: "−";
+            content: "less";
         }
         .industry details .reveal{
             margin-top: 10px;
@@ -532,6 +538,59 @@
             font-style: normal;
         }
 
+        /* Wide horizontal divider with centered MORE toggle, used inside the AI moat block */
+        .more-divider{
+            margin: 18px 0 0;
+            padding: 0;
+        }
+        .more-divider summary{
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 4px 0;
+            user-select: none;
+        }
+        .more-divider summary::-webkit-details-marker{ display: none; }
+        .more-divider summary .line{
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(43,76,126,0.35), rgba(43,76,126,0.35), transparent);
+        }
+        .more-divider summary .label{
+            /* Hide the literal "More" text node — ::after controls the displayed text */
+            font-size: 0;
+            letter-spacing: 2.5px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity .2s ease;
+            white-space: nowrap;
+        }
+        .more-divider summary:hover .label{ opacity: 0.75; }
+        .more-divider summary .label::after{
+            content: "more";
+            font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+            font-size: 11px;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--accent);
+            line-height: 1;
+            display: inline-block;
+            transition: opacity .2s ease;
+        }
+        .more-divider[open] summary .label::after{
+            content: "less";
+        }
+        .more-divider[open] summary .label{
+            opacity: 0.78;
+        }
+        .more-divider .more-content{
+            margin-top: 16px;
+            animation: revealIn .3s ease-out;
+        }
+
         /* Pathogen/detection status grid — preserved */
         .status-grid{
             display: grid;
@@ -639,9 +698,9 @@
         <span class="kicker">Optical Liquid Intelligence · AI · Real-Time Sensing</span>
         <h1><b>Reagent-free, real-time detection</b> in flowing liquids.</h1>
         <p class="lead">
-            Spectrogy is a deep-tech sensing platform that combines optical spectroscopy, embedded hardware
-            and AI-driven signal analysis to deliver continuous, inline insight into liquids — from greenhouse
-            irrigation and beverage production to process water, bioreactors and industrial cooling loops.
+            Spectrogy detects pathogens, contamination and process events inside flowing liquids in seconds — directly
+            on the pipe, without reagents, sampling or laboratory wait times. The same sensing core operates across
+            greenhouse irrigation, beverage production, process water, bioreactors and industrial cooling loops.
         </p>
 
         <div class="tags">
@@ -783,6 +842,27 @@
                 </details>
             </div>
 
+            <!-- EV battery coolant — thermal management & electrolyte leak detection -->
+            <div class="industry">
+                <div class="ix-kicker">MOBILITY · EV</div>
+                <h5>EV battery coolant monitoring</h5>
+                <p>
+                    Inline analysis of thermal-management fluids in electric vehicle battery packs — detecting
+                    coolant degradation, particulate wear and early electrolyte leakage.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Current EV thermal sensors track only single parameters such as conductivity or temperature
+                        and miss the underlying fluid chemistry. Inline optical sensing identifies particulate from
+                        pump wear, glycol oxidation and — critically — the molecular signature of carbonate
+                        electrolyte solvents leaking from a damaged cell, hours to minutes before a thermal-runaway
+                        event. A safety-critical layer for Tier-1 thermal-management integrators.
+                        <div class="reg"><b>Targets:</b> Tier-1 thermal suppliers · battery pack OEMs</div>
+                    </div>
+                </details>
+            </div>
+
             <!-- Online Water Bioburden Analyzer (OWBA) — pharma water USP <1231> -->
             <div class="industry">
                 <div class="ix-kicker">PHARMA</div>
@@ -813,7 +893,7 @@
                 <details>
                     <summary>More</summary>
                     <div class="reveal">
-                        The validated home deployment that anchors the platform and continuously trains its
+                        The proven home deployment that anchors the platform and continuously trains its
                         spectral library. A short list of high-tech producers — Bowery, Plenty, Gotham Greens,
                         80 Acres — represents the natural pilot set.
                         <div class="reg"><b>Targets:</b> PepMV · ToBRFV · <em>Clavibacter</em> · <em>Pseudomonas</em></div>
@@ -836,6 +916,27 @@
                         biomass. The fastest-growing segment of US aquaculture — Atlantic Sapphire, Riverence,
                         AquaBounty — actively co-funds pilots through USDA NIFA programs.
                         <div class="reg"><b>Driver:</b> USDA NIFA pilot programs · biosecurity standards</div>
+                    </div>
+                </details>
+            </div>
+
+            <!-- Semiconductor ultrapure water (UPW) — fab process water monitoring -->
+            <div class="industry">
+                <div class="ix-kicker">SEMICONDUCTOR</div>
+                <h5>Ultrapure water for fabs</h5>
+                <p>
+                    Integrated inline sensing for semiconductor ultrapure water — sub-100 nm particle detection,
+                    organic carbon and microbial contamination in a single instrument.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Leading-edge fabs consume millions of liters of ultrapure water per day, and any
+                        contamination of UPW translates directly into wafer yield loss. Current monitoring relies
+                        on multiple single-parameter instruments — particle counters, TOC analyzers, microbial
+                        kits — each at significant capex. A single multi-modal sensor consolidates these readings,
+                        reducing fab integration overhead while operating in the critical sub-100 nm particle range.
+                        <div class="reg"><b>Targets:</b> SEMI F63 compliance · fab process engineering teams</div>
                     </div>
                 </details>
             </div>
@@ -870,7 +971,7 @@
                 <details>
                     <summary>More</summary>
                     <div class="reveal">
-                        Already field-validated in wineries on the Gen I analyzer. The same architecture scales
+                        Already proven in winery production on the Gen I analyzer. The same architecture scales
                         to CIP verification in food &amp; beverage plants, where inline confirmation replaces
                         manual ATP swabs and shortens turnaround between batches.
                         <div class="reg"><b>Driver:</b> FDA FSMA · SQF certification</div>
@@ -923,7 +1024,7 @@
     <section class="card">
         <div class="section-head">
             <h3>Detection Library</h3>
-            <p class="sub">Validated inline targets — expanding with each new dataset.</p>
+            <p class="sub">Proven inline targets — expanding with each new dataset.</p>
         </div>
 
         <div class="status-grid">
@@ -1134,6 +1235,15 @@
                 structure of all three measurements at once — and that is true at every stage of the pipeline,
                 not just at the final decision.
             </p>
+
+            <!-- Wide divider with centered MORE label — reveals the five-point breakdown -->
+            <details class="more-divider">
+                <summary>
+                    <span class="line"></span>
+                    <span class="label">More</span>
+                    <span class="line"></span>
+                </summary>
+                <div class="more-content">
             <ul>
                 <li>
                     <span class="ix">01</span>
@@ -1186,6 +1296,8 @@
                     </span>
                 </li>
             </ul>
+                </div>
+            </details>
         </div>
     </section>
 
@@ -1193,16 +1305,30 @@
     <section class="card invest">
         <div class="section-head">
             <h3>Partnerships & Investment</h3>
-            <p class="sub">From validated platform to multi-industry deployment.</p>
+            <p class="sub">Building the optical sensing layer for industrial liquids — together with the partners who back deep tech.</p>
         </div>
-        <p style="margin:0 0 10px; font-size:14.5px; line-height:1.6;">
-            Spectrogy is moving from validated deployments in agriculture and beverages into water, biotech and
-            industrial process monitoring. We are working with strategic partners on enterprise pilots and are
-            engaging with deep-tech investors to accelerate this expansion.
+
+        <p style="margin:0 0 12px; font-size:14.5px; line-height:1.6;">
+            We are a deep-tech company combining optical hardware, embedded systems and applied AI to deliver
+            continuous, reagent-free liquid analysis. Our platform is already deployed in production environments,
+            generating real spectral data and detecting real-world events. The next stage is scaling the same
+            sensing core across water, biotech, pharma and industrial process monitoring — markets still dependent
+            on slow, laboratory-based workflows.
         </p>
+
+        <p style="margin:0 0 12px; font-size:14.5px; line-height:1.6;">
+            We are seeking deep-tech investors and strategic partners who understand hard-tech development cycles
+            and the long-term value of defensible sensing infrastructure. Our focus is on partners with expertise
+            in scientific instrumentation, industrial AI, optics and advanced sensing systems.
+        </p>
+
+        <p style="margin:0 0 12px; font-size:14.5px; line-height:1.6;">
+            On the commercial side, we work with industrial operators and integrators in water treatment, biotech,
+            pharma, food production and aquaculture on pilots, co-development and deployment partnerships.
+        </p>
+
         <p style="margin:0 0 16px; font-size:14.5px; line-height:1.6;">
-            We welcome inquiries from investors, industrial partners and scientific collaborators.
-            Technology demonstrations are available on request.
+            Technology demonstrations, pilot discussions and detailed technical materials are available on request.
         </p>
 
         <div style="margin-top: 18px;">
