@@ -1,5 +1,21 @@
 {
   "projects": {
     "default": "spectrogy-8b15f"
-  }
+  },
+  "targets": {
+    "spectrogy-8b15f": {
+      "hosting": {
+        "main": [
+          "spectrogy-8b15f"
+        ],
+        "pool": [
+          "spectrogy-pool"
+        ],
+        "spectra": [
+          "spectrogy-spectra"
+        ]
+      }
+    }
+  },
+  "etags": {}
 }
