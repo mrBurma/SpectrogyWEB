@@ -1,12 +1,38 @@
 {
-  "hosting": {
-    "public": ".",
-    "ignore": [
-      "firebase.json",
-      ".firebaserc",
-      "**/.*",
-      "**/node_modules/**",
-      ".github/**"
-    ]
-  }
+  "hosting": [
+    {
+      "target": "main",
+      "public": ".",
+      "ignore": [
+        "firebase.json",
+        ".firebaserc",
+        "**/.*",
+        "**/node_modules/**",
+        ".github/**",
+        "pool/**",
+        "spectra/**",
+        "README.md"
+      ]
+    },
+    {
+      "target": "pool",
+      "public": "pool",
+      "ignore": [
+        "firebase.json",
+        ".firebaserc",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    },
+    {
+      "target": "spectra",
+      "public": "spectra",
+      "ignore": [
+        "firebase.json",
+        ".firebaserc",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
+  ]
 }
