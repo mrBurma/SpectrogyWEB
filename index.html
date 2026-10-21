@@ -11,11 +11,11 @@
     <link rel="manifest" href="/favicon/site.webmanifest" />
 
     <title>SPECTROGY — Optical Liquid Intelligence Platform | Real-Time Sensing Infrastructure</title>
-    <meta name="description" content="SPECTROGY: a deep-tech optical sensing platform combining spectroscopy, embedded hardware and AI for real-time molecular analysis of liquids across agriculture, water, beverages, biotech and industrial process monitoring.">
-    <meta name="keywords" content="optical sensing platform, AI spectral analysis, real-time liquid analysis, deep tech sensing, inline monitoring, industrial sensors, water quality, bioprocess monitoring, beverage analytics, pathogen detection">
+    <meta name="description" content="SPECTROGY: a patented, reagent-free optical sensing platform combining spectroscopy, embedded hardware and AI for real-time analysis of flowing liquids. In commercial operation: 10 inline sensors detecting 4 plant pathogens in an industrial greenhouse.">
+    <meta name="keywords" content="optical sensing platform, AI spectral analysis, real-time liquid analysis, deep tech sensing, inline monitoring, industrial sensors, water quality, greenhouse irrigation, plant pathogen detection, ToBRFV, PepMV, pool water monitoring">
 
     <meta property="og:title" content="SPECTROGY — Optical Liquid Intelligence Platform">
-    <meta property="og:description" content="A deep-tech sensing platform for real-time molecular analysis of liquids. Spectroscopy, embedded hardware and AI in one architecture.">
+    <meta property="og:description" content="Patented reagent-free optical sensing for flowing liquids. 10 inline sensors in commercial greenhouse operation, 4 pathogens, lab-confirmed detections.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://spectrogy.com/">
     <meta property="og:image" content="https://spectrogy.com/images/og-preview.jpg">
@@ -187,6 +187,92 @@
             font-size: 14px;
             opacity: .75;
         }
+
+        /* Proof strip under the hero lead: verified facts first */
+        .proof{
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 4px 0 14px;
+        }
+        .proof div{
+            background: rgba(43,76,126,0.06);
+            border: 1px solid rgba(43,76,126,0.16);
+            border-radius: 10px;
+            padding: 10px 12px;
+        }
+        .proof b{
+            display: block;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--accent);
+            line-height: 1.1;
+        }
+        .proof span{
+            display: block;
+            margin-top: 4px;
+            font-size: 12px;
+            line-height: 1.35;
+            color: #374151;
+        }
+        .cta-row{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 4px;
+        }
+        .cta-row a{
+            display: inline-flex;
+            align-items: center;
+            padding: 9px 14px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            text-decoration: none;
+            border: 1px solid var(--accent);
+            transition: background .2s ease, transform .2s ease;
+        }
+        .cta-row a.primary{ background: var(--accent); color: #fff; }
+        .cta-row a.primary:hover{ background: var(--accent-soft); transform: translateY(-1px); }
+        .cta-row a.secondary{ background: transparent; color: var(--accent); }
+        .cta-row a.secondary:hover{ background: rgba(43,76,126,0.08); }
+        @media (max-width: 640px){
+            .proof{ grid-template-columns: 1fr 1fr; }
+        }
+
+        /* Maturity badge on industry cards */
+        .stage{
+            display: inline-block;
+            margin-left: 6px;
+            padding: 1px 6px;
+            border-radius: 4px;
+            font-size: 9.5px;
+            letter-spacing: 1px;
+            vertical-align: 1px;
+            border: 1px solid currentColor;
+        }
+        .stage.deployed{ color: var(--emerald); background: rgba(15,118,110,0.08); }
+        .stage.pilot{ color: var(--amber); background: rgba(217,119,6,0.08); }
+        .stage.rnd{ color: var(--muted); }
+        .industry.is-deployed{ border-left-color: var(--emerald); }
+        .industry.is-pilot{ border-left-color: var(--amber); }
+        .industry .ix-link{
+            display: inline-block;
+            margin-top: 8px;
+            font-size: 12.5px;
+            font-weight: 600;
+            color: var(--accent);
+            text-decoration: none;
+        }
+        .stage-key{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin: -4px 0 4px;
+            font-size: 12px;
+            color: var(--muted);
+        }
+        .stage-key .stage{ margin-left: 0; margin-right: 4px; }
 
         /* Technology platform — three pillars */
         .pillars{
@@ -699,9 +785,21 @@
         <h1><b>Reagent-free, real-time detection</b> in flowing liquids.</h1>
         <p class="lead">
             Spectrogy box detects pathogens, contamination and process events inside flowing liquids in seconds — directly
-            on the pipe, without reagents, sampling or laboratory wait times. The same sensing core operates across
-            greenhouse irrigation, beverage production, process water, bioreactors and industrial cooling loops.
+            on the pipe, without reagents, sampling or laboratory wait times. The same patented sensing core operates across
+            greenhouse irrigation, pool and building water, beverage production, process water, bioreactors and industrial cooling loops.
         </p>
+
+        <div class="proof" aria-label="Verified results">
+            <div><b>10</b><span>inline sensors in commercial operation at an industrial greenhouse</span></div>
+            <div><b>4</b><span>plant pathogens detected: 2 viruses, 2 bacteria</span></div>
+            <div><b>0</b><span>false positives across ~100 lab-confirmed detections</span></div>
+            <div><b>Patented</b><span>optical detection technology</span></div>
+        </div>
+
+        <div class="cta-row">
+            <a class="primary" href="mailto:hello@spectrogy.com?subject=Pilot%20request">Request a pilot</a>
+            <a class="secondary" href="mailto:hello@spectrogy.com?subject=Investor%20materials">Investor materials</a>
+        </div>
 
         <div class="tags">
             <span class="tag">Spectroscopy</span>
@@ -745,10 +843,10 @@
             </div>
             <div class="pillar">
                 <div class="num">02 · COMPUTE</div>
-                <h4>Embedded AI</h4>
+                <h4>Embedded acquisition + AI</h4>
                 <p>
-                    On-device signal processing and trained classifiers turn raw optical data into structured events,
-                    concentrations and anomaly alerts. Decisions happen at the sensor, in milliseconds.
+                    A microcontroller sequences the light sources and captures every channel; trained classifiers turn
+                    the raw optical data into structured events, trends and anomaly alerts within seconds of each measurement.
                 </p>
             </div>
             <div class="pillar">
@@ -800,11 +898,13 @@
                     <div class="meta">GEN II · INLINE FLOW SENSOR</div>
                     <p>
                         Continuous <span class="highlight">spectral monitoring</span> directly inside a flowing pipeline.
-                        Deployed in <span class="highlight">industrial greenhouses</span> for real-time detection of
-                        <span class="highlight">bacteria</span> and <span class="highlight">viruses</span> in irrigation water,
-                        with the same architecture extensible to process water, bioreactors and industrial loops.
+                        <b>10 sensors in commercial operation</b> at an <span class="highlight">industrial greenhouse</span>,
+                        detecting <span class="highlight">bacteria</span> and <span class="highlight">viruses</span> in irrigation water
+                        around the clock. The same architecture extends to pool and building water, process water,
+                        bioreactors and industrial loops.
                     </p>
                     <div class="specs">
+                        <span>IN COMMERCIAL USE</span>
                         <span>INLINE</span>
                         <span>24 / 7</span>
                         <span>NO CONSUMABLES</span>
@@ -818,33 +918,60 @@
     <section class="card">
         <div class="section-head">
             <h3>Industry Applications</h3>
-            <p class="sub">One measurement platform — deployed and adaptable across liquid-driven verticals.</p>
+            <p class="sub">One measurement platform — in commercial operation in agriculture, in pilot preparation for water, built to extend across liquid-driven verticals.</p>
+        </div>
+
+        <div class="stage-key">
+            <span><span class="stage deployed">DEPLOYED</span>in commercial operation</span>
+            <span><span class="stage pilot">PILOT</span>pilot in preparation</span>
+            <span><span class="stage rnd">R&amp;D</span>platform roadmap</span>
         </div>
 
         <div class="industries">
 
-            <!-- Cooling towers & pools — Legionella (ASHRAE 188 / NYC Subpart 4-1) -->
-            <div class="industry">
-                <div class="ix-kicker">WATER · BUILDINGS</div>
-                <h5>Cooling towers, spas & pools</h5>
+            <!-- Agricultural pathogens — commercial home deployment -->
+            <div class="industry is-deployed">
+                <div class="ix-kicker">AGRICULTURE <span class="stage deployed">DEPLOYED</span></div>
+                <h5>Greenhouse & vertical farm pathogens</h5>
                 <p>
-                    Continuous online detection of <em>Legionella</em> and microbial load in cooling towers,
-                    aquatic facilities and large-building water systems.
+                    Inline monitoring of irrigation and recirculation water for plant viruses and bacterial
+                    pathogens. 10 sensors in commercial operation at an industrial greenhouse.
                 </p>
                 <details>
                     <summary>More</summary>
                     <div class="reveal">
-                        Replaces 90-day lab cultures with real-time bio-surveillance. Targets facility managers in
-                        hospitals, hotels and large residential buildings, with water-treatment vendors as a
-                        channel partner.
-                        <div class="reg"><b>Driver:</b> ASHRAE 188 · NYC 10 NYCRR Subpart 4-1</div>
+                        The commercial home deployment that anchors the platform and continuously grows its
+                        spectral library. Sustained detections are confirmed by laboratory analysis: across about
+                        100 confirmations to date, no false positives. Next: additional greenhouse complexes and
+                        vertical farms.
+                        <div class="reg"><b>Targets:</b> PepMV · ToBRFV · <em>Clavibacter michiganensis</em> · <em>Pseudomonas corrugata</em></div>
                     </div>
                 </details>
             </div>
 
+            <!-- Cooling towers & pools — pilot in preparation -->
+            <div class="industry is-pilot">
+                <div class="ix-kicker">WATER · BUILDINGS <span class="stage pilot">PILOT</span></div>
+                <h5>Pools, spas & cooling towers</h5>
+                <p>
+                    Continuous online monitoring of microbial load in commercial pools, aquatic facilities,
+                    cooling towers and large-building water systems. Pool deployment in negotiation.
+                </p>
+                <details>
+                    <summary>More</summary>
+                    <div class="reveal">
+                        Replaces slow lab cultures with real-time bio-surveillance, alongside the existing chemistry
+                        controller. Targets facility managers in hospitals, hotels, fitness and residential buildings,
+                        with water-treatment vendors as a channel partner.
+                        <div class="reg"><b>Driver:</b> ASHRAE 188 · NYC 10 NYCRR Subpart 4-1</div>
+                    </div>
+                </details>
+                <a class="ix-link" href="https://pool.spectrogy.com/" target="_blank" rel="noopener">pool.spectrogy.com →</a>
+            </div>
+
             <!-- EV battery coolant — thermal management & electrolyte leak detection -->
             <div class="industry">
-                <div class="ix-kicker">MOBILITY · EV</div>
+                <div class="ix-kicker">MOBILITY · EV <span class="stage rnd">R&amp;D</span></div>
                 <h5>EV battery coolant monitoring</h5>
                 <p>
                     Inline analysis of thermal-management fluids in electric vehicle battery packs — detecting
@@ -865,7 +992,7 @@
 
             <!-- Online Water Bioburden Analyzer (OWBA) — pharma water USP <1231> -->
             <div class="industry">
-                <div class="ix-kicker">PHARMA</div>
+                <div class="ix-kicker">PHARMA <span class="stage rnd">R&amp;D</span></div>
                 <h5>Online Water Bioburden Analyzer</h5>
                 <p>
                     Real-time bioburden monitoring for pharmaceutical Purified Water and Water-for-Injection loops
@@ -882,28 +1009,9 @@
                 </details>
             </div>
 
-            <!-- Agricultural pathogens — greenhouses and vertical farms -->
-            <div class="industry">
-                <div class="ix-kicker">AGRICULTURE</div>
-                <h5>Greenhouse & vertical farm pathogens</h5>
-                <p>
-                    Inline monitoring of irrigation and recirculation water for plant viruses and bacterial
-                    pathogens.
-                </p>
-                <details>
-                    <summary>More</summary>
-                    <div class="reveal">
-                        The proven home deployment that anchors the platform and continuously trains its
-                        spectral library. A short list of high-tech producers — Bowery, Plenty, Gotham Greens,
-                        80 Acres — represents the natural pilot set.
-                        <div class="reg"><b>Targets:</b> PepMV · ToBRFV · <em>Clavibacter</em> · <em>Pseudomonas</em></div>
-                    </div>
-                </details>
-            </div>
-
             <!-- Aquaculture — RAS shrimp & salmon -->
             <div class="industry">
-                <div class="ix-kicker">AQUACULTURE</div>
+                <div class="ix-kicker">AQUACULTURE <span class="stage rnd">R&amp;D</span></div>
                 <h5>RAS shrimp & salmon farms</h5>
                 <p>
                     Continuous water monitoring in recirculating aquaculture systems for bacterial and viral
@@ -913,8 +1021,8 @@
                     <summary>More</summary>
                     <div class="reveal">
                         A single undetected outbreak of <em>Vibrio</em>, IHN or ISA can cost millions in lost
-                        biomass. The fastest-growing segment of US aquaculture — Atlantic Sapphire, Riverence,
-                        AquaBounty — actively co-funds pilots through USDA NIFA programs.
+                        biomass. Land-based recirculating aquaculture is among the fastest-growing segments of fish
+                        farming, and biosecurity monitoring is a natural fit for inline optical sensing.
                         <div class="reg"><b>Driver:</b> USDA NIFA pilot programs · biosecurity standards</div>
                     </div>
                 </details>
@@ -922,7 +1030,7 @@
 
             <!-- Semiconductor ultrapure water (UPW) — fab process water monitoring -->
             <div class="industry">
-                <div class="ix-kicker">SEMICONDUCTOR</div>
+                <div class="ix-kicker">SEMICONDUCTOR <span class="stage rnd">R&amp;D</span></div>
                 <h5>Ultrapure water for fabs</h5>
                 <p>
                     Integrated inline sensing for semiconductor ultrapure water — sub-100 nm particle detection,
@@ -943,7 +1051,7 @@
 
             <!-- Dental unit waterlines (DUWL) -->
             <div class="industry">
-                <div class="ix-kicker">HEALTHCARE</div>
+                <div class="ix-kicker">HEALTHCARE <span class="stage rnd">R&amp;D</span></div>
                 <h5>Dental unit waterlines</h5>
                 <p>
                     Compact inline sensor for dental chair waterlines, ensuring continuous compliance with the
@@ -964,7 +1072,7 @@
 
             <!-- Biotech — bioreactor monitoring -->
             <div class="industry">
-                <div class="ix-kicker">BIOTECH</div>
+                <div class="ix-kicker">BIOTECH <span class="stage rnd">R&amp;D</span></div>
                 <h5>Bioreactor monitoring</h5>
                 <p>
                     Early contamination signal for bioreactors via bypass-loop sensing.
@@ -982,7 +1090,7 @@
 
             <!-- Industrial — process & reuse water -->
             <div class="industry">
-                <div class="ix-kicker">INDUSTRIAL</div>
+                <div class="ix-kicker">INDUSTRIAL <span class="stage rnd">R&amp;D</span></div>
                 <h5>Process & reuse water</h5>
                 <p>
                     Distributed monitoring for municipal water reuse, industrial cooling loops and process water
@@ -1007,7 +1115,7 @@
     <section class="card">
         <div class="section-head">
             <h3>Detection Library</h3>
-            <p class="sub">Proven inline targets — expanding with each new dataset.</p>
+            <p class="sub">Inline targets in commercial use, with sustained detections confirmed in the laboratory — expanding with each new dataset.</p>
         </div>
 
         <div class="status-grid">
@@ -1039,6 +1147,8 @@
 
         <p class="status-note">
             The Spectrogy platform provides <strong>real-time monitoring</strong> across these targets today.
+            In greenhouse operation, every sustained detection is sent for laboratory confirmation:
+            across about 100 confirmations to date, <strong>no false positives</strong>.
             The library expands continuously as new spectral training data is acquired for additional
             <u>pathogens, chemistries and process signatures</u>.
         </p>
@@ -1185,7 +1295,7 @@
                 <g>
                     <rect x="428" y="290" width="186" height="50" rx="6" fill="#0f1a2e" stroke="#3b6ba5" stroke-width="1"/>
                     <text x="521" y="310" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="12" font-weight="600" fill="#e6edf7">Target classification</text>
-                    <text x="521" y="326" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">online learning · adaptive</text>
+                    <text x="521" y="326" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="10.5" fill="#9ab2d4">retrained on labelled data</text>
                 </g>
 
                 <!-- Stage 4: Expert reasoning -->
@@ -1261,8 +1371,9 @@
                 <li>
                     <span class="ix">04</span>
                     <span class="body">
-                        <b>The system learns continuously.</b>
-                        Each labelled measurement folds back into the classifier in real time. New pathogens and new
+                        <b>The system keeps learning.</b>
+                        Every labelled, lab-confirmed measurement extends the training set, and retrained models roll out
+                        across the fleet. New pathogens and new
                         process signatures can be added without changing the hardware — only the model. The fleet
                         improves with every deployment, and the spectral library becomes a compounding proprietary
                         asset that cannot be replicated from public data.
@@ -1293,10 +1404,12 @@
 
         <p style="margin:0 0 12px; font-size:14.5px; line-height:1.6;">
             We are a deep-tech company combining optical hardware, embedded systems and applied AI to deliver
-            continuous, reagent-free liquid analysis. Our platform is already deployed in production environments,
-            generating real spectral data and detecting real-world events. The next stage is scaling the same
-            sensing core across water, biotech, pharma and industrial process monitoring — markets still dependent
-            on slow, laboratory-based workflows.
+            continuous, reagent-free liquid analysis. The technology is patented and already in commercial use:
+            under our first contract, 10 inline sensors monitor irrigation water at an industrial greenhouse,
+            detecting four plant pathogens, with sustained detections confirmed in the laboratory and no false
+            positives to date. A pool deployment is in negotiation. The next stage is scaling the same sensing core
+            across water, biotech, pharma and industrial process monitoring — markets still dependent on slow,
+            laboratory-based workflows.
         </p>
 
         <p style="margin:0 0 12px; font-size:14.5px; line-height:1.6;">
@@ -1306,8 +1419,9 @@
         </p>
 
         <p style="margin:0 0 12px; font-size:14.5px; line-height:1.6;">
-            On the commercial side, we work with industrial operators and integrators in water treatment, biotech,
-            pharma, food production and aquaculture on pilots, co-development and deployment partnerships.
+            On the commercial side, we work with greenhouse operators, pool and building-water operators, and
+            integrators in water treatment, biotech, pharma, food production and aquaculture on pilots,
+            co-development and deployment partnerships.
         </p>
 
         <p style="margin:0 0 16px; font-size:14.5px; line-height:1.6;">
