@@ -236,6 +236,23 @@
         .cta-row a.primary:hover{ background: var(--accent-soft); transform: translateY(-1px); }
         .cta-row a.secondary{ background: transparent; color: var(--accent); }
         .cta-row a.secondary:hover{ background: rgba(43,76,126,0.08); }
+        .cta-row a{ gap: 7px; }
+        .cta-row a svg{ width: 15px; height: 15px; flex-shrink: 0; }
+        .cta-row{ align-items: center; }
+        .cta-hint{
+            font-size: 12px;
+            color: var(--muted);
+            margin-left: 4px;
+        }
+        .cta-row .cta-hint a{
+            display: inline;
+            padding: 0;
+            border: none;
+            font-size: inherit;
+            font-weight: 600;
+            color: var(--accent);
+            background: none;
+        }
         @media (max-width: 640px){
             .proof{ grid-template-columns: 1fr 1fr; }
         }
@@ -797,8 +814,15 @@
         </div>
 
         <div class="cta-row">
-            <a class="primary" href="mailto:hello@spectrogy.com?subject=Pilot%20request">Request a pilot</a>
-            <a class="secondary" href="mailto:hello@spectrogy.com?subject=Investor%20materials">Investor materials</a>
+            <a class="primary" href="mailto:hello@spectrogy.com?subject=Pilot%20request" title="Email hello@spectrogy.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                Request a pilot
+            </a>
+            <a class="secondary" href="mailto:hello@spectrogy.com?subject=Investor%20materials" title="Email hello@spectrogy.com">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+                Investor materials
+            </a>
+            <span class="cta-hint">Opens an email to <a href="mailto:hello@spectrogy.com">hello@spectrogy.com</a></span>
         </div>
 
         <div class="tags">
