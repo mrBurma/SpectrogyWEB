@@ -333,30 +333,18 @@
         /* Dashboard views in the hero */
         .hero-ai-images{
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            align-items: start;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            max-width: 740px;
         }
-        .hero-ai-images figure{ margin: 0; }
         .hero-ai-images a{ display: block; }
         .hero-ai-images img{
             width: 100%;
-            aspect-ratio: 2.9 / 1;
+            aspect-ratio: 16 / 9;
             object-fit: contain;
-            background: #0c1621;
+            background: #0b0f14;
             border-radius: 10px;
             display: block;
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-        .hero-ai-images a:hover img{
-            transform: translateY(-1px);
-            box-shadow: 0 6px 18px rgba(12,22,33,0.25);
-        }
-        .hero-ai-images figcaption{
-            margin-top: 6px;
-            font-size: 12px;
-            line-height: 1.4;
-            color: var(--muted);
         }
 
         /* Field photos inside the agriculture card */
@@ -803,8 +791,12 @@
             .pillars{ grid-template-columns: repeat(3, 1fr); }
             .hero-ai-images{ gap: 12px; }
         }
-        @media (max-width: 640px){
-            .hero-ai-images{ grid-template-columns: 1fr; }
+        @media (max-width: 480px){
+            .hero-ai-images{
+                grid-template-columns: 1fr;
+                width: 80%;
+                margin: 0 auto 8px auto;
+            }
         }
         @media (max-width: 480px){
             .hero h1{ white-space: normal; }
@@ -876,20 +868,11 @@
 
         <!-- Live views from the Spectrogy monitoring dashboard -->
         <div class="hero-ai" style="margin-top:18px; padding-top:14px; border-top:1px solid var(--line);">
-            <h3 style="margin:0 0 12px; font-size:14px; text-transform:uppercase; letter-spacing:1.2px;">From the Spectrogy dashboard</h3>
+            <h3 style="margin:0 0 12px; font-size:14px; text-transform:uppercase; letter-spacing:1.2px;">AI Spectral Analysis</h3>
             <div class="hero-ai-images">
-                <figure>
-                    <a href="./images/admin-traces.webp" target="_blank" rel="noopener">
-                        <img src="./images/admin-traces.webp" alt="Five optical channel traces from one monitoring session: red 650 nm, green 515 nm, blue 405 nm, UVC 280 nm absorption and UVC 280 nm fluorescence" loading="lazy">
-                    </a>
-                    <figcaption>Raw optical traces from one monitoring session: five channels, SNR 38–55 dB</figcaption>
-                </figure>
-                <figure>
-                    <a href="./images/admin-pathogens.webp" target="_blank" rel="noopener">
-                        <img src="./images/admin-pathogens.webp" alt="Pathogen library in the dashboard: PepMV, ToBRFV, Clavibacter michiganensis and Pseudomonas corrugata active and calibrated" loading="lazy">
-                    </a>
-                    <figcaption>Pathogen library: four pathogens active and calibrated in the production model</figcaption>
-                </figure>
+                <a href="./images/admin-session.webp" target="_blank" rel="noopener"><img src="./images/admin-session.webp" alt="Measurement review in the Spectrogy dashboard: five optical channel traces from one session" loading="lazy"></a>
+                <a href="./images/admin-fleet.webp" target="_blank" rel="noopener"><img src="./images/admin-fleet.webp" alt="Fleet monitoring in the Spectrogy dashboard: sensor status and pathogen scores" loading="lazy"></a>
+                <a href="./images/admin-pathogens.webp" target="_blank" rel="noopener"><img src="./images/admin-pathogens.webp" alt="Pathogen library in the Spectrogy dashboard" loading="lazy"></a>
             </div>
             <p class="note">
                 The sensor turns raw optical signals into physical measurements in real time. Models trained on
