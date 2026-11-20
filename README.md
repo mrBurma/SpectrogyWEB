@@ -1,4 +1,4 @@
-<h1 align="center">🌐 spectrogy.com</h1>
+<h1 align="center"><img src="favicon/web-app-manifest-192x192.png" alt="Spectrogy logo" height="40"> spectrogy.com</h1>
 
 <p align="center">
   <i>The public face of Spectrogy, an optical liquid-intelligence platform: spectroscopy + embedded hardware + AI for real-time analysis of liquids.</i>
