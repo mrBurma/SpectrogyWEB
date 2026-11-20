@@ -62,16 +62,4 @@ Preview locally with any static server, for example `python3 -m http.server 8000
 
 ---
 
-## Related
-
-- 🔒 `spectrogy-server`: FastAPI + ML backend *(private)*
-- 🔒 `spectrogy-firmware`: STM32 + ESP8266 sensor firmware & KiCad hardware *(private)*
-- 📊 [app.spectrogy.com](https://app.spectrogy.com): the fleet dashboard
-
----
-
-<p align="center">
-  Built by <a href="https://github.com/mrBurma"><b>Dmitriy Ageev</b></a>, physicist · inventor · deep-tech founder of <a href="https://spectrogy.com">Spectrogy</a><br>
-  <a href="https://boosty.to/ague/donate">❤️ Support on Boosty</a>: lessons, 3D models and code from real projects
-</p>
 <p align="center"><sub>© Spectrogy · site content and imagery all rights reserved</sub></p>
